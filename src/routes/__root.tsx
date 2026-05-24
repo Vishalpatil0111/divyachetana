@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
 
 import appCss from "../styles.css?url";
 
@@ -113,7 +114,108 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <SiteHeader />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <SiteFooter />
+      </div>
     </QueryClientProvider>
+  );
+}
+
+const NAV = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/causes", label: "Causes" },
+  { to: "/events", label: "Events" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/media", label: "Media" },
+  { to: "/volunteer", label: "Volunteer" },
+  { to: "/contact", label: "Contact" },
+] as const;
+
+function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
+      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
+          <span className="h-8 w-8 rounded-full bg-primary grid place-items-center text-primary-foreground">
+            <Sparkles className="h-4 w-4" />
+          </span>
+          <span className="font-semibold tracking-tight">Divya Chetna</span>
+        </Link>
+        <div className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
+          {NAV.map((n) => (
+            <Link
+              key={n.to}
+              to={n.to}
+              className="hover:text-foreground transition"
+              activeProps={{ className: "text-foreground font-medium" }}
+              activeOptions={{ exact: true }}
+            >
+              {n.label}
+            </Link>
+          ))}
+        </div>
+        <Link
+          to="/causes"
+          className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition shrink-0"
+        >
+          Donate <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
+      </nav>
+    </header>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="border-t border-border mt-12">
+      <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-8">
+        <div className="md:col-span-2">
+          <div className="flex items-center gap-2">
+            <span className="h-8 w-8 rounded-full bg-primary grid place-items-center text-primary-foreground">
+              <Sparkles className="h-4 w-4" />
+            </span>
+            <span className="font-semibold">Divya Chetna Foundation</span>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
+            Caring for children who lost their parents to COVID-19 — providing
+            education, dignity, and a path forward since 2021.
+          </p>
+          <div className="mt-5 flex items-center gap-3">
+            <a href="#" aria-label="Instagram" className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"><Instagram className="h-4 w-4" /></a>
+            <a href="#" aria-label="Facebook" className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"><Facebook className="h-4 w-4" /></a>
+            <a href="#" aria-label="Twitter" className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"><Twitter className="h-4 w-4" /></a>
+          </div>
+        </div>
+        <div className="text-sm">
+          <div className="font-medium mb-3">Explore</div>
+          <ul className="space-y-2 text-muted-foreground">
+            {NAV.slice(1, 6).map((n) => (
+              <li key={n.to}>
+                <Link to={n.to} className="hover:text-foreground">{n.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="text-sm">
+          <div className="font-medium mb-3">Reach us</div>
+          <ul className="space-y-2 text-muted-foreground">
+            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0" /><span>A wing 1402 Galaxy Height 57, Jankalyan Nagar, Malad West 400095</span></li>
+            <li><a href="tel:3072129320" className="flex items-center gap-2 hover:text-foreground"><Phone className="h-4 w-4" /><span>(307) 212-9320</span></a></li>
+            <li><a href="mailto:info@divyachetna.org.in" className="flex items-center gap-2 hover:text-foreground"><Mail className="h-4 w-4" /><span>info@divyachetna.org.in</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-border">
+        <div className="max-w-6xl mx-auto px-6 py-5 text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-2">
+          <span>© {new Date().getFullYear()} Divya Chetna Foundation. All rights reserved.</span>
+          <span>Section 8 company · 80G certified</span>
+        </div>
+      </div>
+    </footer>
   );
 }
