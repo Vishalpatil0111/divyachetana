@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-children.jpg";
 import aboutImg from "@/assets/about-student.jpg";
 import volunteerImg from "@/assets/volunteer.jpg";
-import { ArrowRight, Heart, BookOpen, Users, Sparkles, Phone, Mail } from "lucide-react";
+import { ArrowRight, Heart, BookOpen, Users } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -20,31 +21,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Nav */}
-      <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
-        <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <span className="h-8 w-8 rounded-full bg-primary grid place-items-center text-primary-foreground">
-              <Sparkles className="h-4 w-4" />
-            </span>
-            <span className="font-semibold tracking-tight">Divya Chetna</span>
-          </a>
-          <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-            <a href="#about" className="hover:text-foreground transition">About</a>
-            <a href="#work" className="hover:text-foreground transition">Our Work</a>
-            <a href="#impact" className="hover:text-foreground transition">Impact</a>
-            <a href="#contact" className="hover:text-foreground transition">Contact</a>
-          </div>
-          <a
-            href="#donate"
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition"
-          >
-            Donate <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </nav>
-      </header>
-
+    <>
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div
@@ -66,19 +43,19 @@ function Index() {
               child deserves.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#donate"
+              <Link
+                to="/causes"
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:opacity-90 transition"
                 style={{ boxShadow: "var(--shadow-warm)" }}
               >
                 Start Donating <ArrowRight className="h-4 w-4" />
-              </a>
-              <a
-                href="#work"
+              </Link>
+              <Link
+                to="/volunteer"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 font-medium hover:bg-muted transition"
               >
                 Become a Volunteer
-              </a>
+              </Link>
             </div>
           </div>
           <div className="relative">
@@ -126,6 +103,9 @@ function Index() {
               <div className="mt-1 text-sm text-muted-foreground">Cities reached</div>
             </div>
           </div>
+          <Link to="/about" className="mt-8 inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+            Read our story <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
@@ -171,12 +151,12 @@ function Index() {
             place for you here. Help us mentor, teach, fundraise, or simply
             spread the word.
           </p>
-          <a
-            href="#contact"
+          <Link
+            to="/volunteer"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 font-medium hover:opacity-90 transition"
           >
             Join as Volunteer <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
         <img
           src={volunteerImg}
@@ -201,44 +181,14 @@ function Index() {
             Every contribution — large or small — helps a child stay in school
             and dream a little bigger.
           </p>
-          <a
-            href="#contact"
+          <Link
+            to="/causes"
             className="mt-10 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 font-medium hover:opacity-90 transition"
           >
             Donate Now <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer id="contact" className="border-t border-border">
-        <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-8 items-start">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="h-8 w-8 rounded-full bg-primary grid place-items-center text-primary-foreground">
-                <Sparkles className="h-4 w-4" />
-              </span>
-              <span className="font-semibold">Divya Chetna Foundation</span>
-            </div>
-            <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-              Building a better tomorrow for underprivileged students since 2021.
-            </p>
-          </div>
-          <div className="text-sm">
-            <div className="font-medium">Reach us</div>
-            <a href="tel:3072129320" className="mt-3 flex items-center gap-2 text-muted-foreground hover:text-foreground">
-              <Phone className="h-4 w-4" /> (307) 212-9320
-            </a>
-            <a href="mailto:info@divyachetna.org.in" className="mt-2 flex items-center gap-2 text-muted-foreground hover:text-foreground">
-              <Mail className="h-4 w-4" /> info@divyachetna.org.in
-            </a>
-          </div>
-          <div className="text-sm text-muted-foreground md:text-right">
-            © {new Date().getFullYear()} Divya Chetna Foundation.
-            <br /> All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
