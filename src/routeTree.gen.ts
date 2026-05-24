@@ -13,6 +13,7 @@ import { Route as VolunteerRouteImport } from './routes/volunteer'
 import { Route as MediaRouteImport } from './routes/media'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CausesRouteImport } from './routes/causes'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -37,6 +38,11 @@ const EventsRoute = EventsRouteImport.update({
   path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CausesRoute = CausesRouteImport.update({
   id: '/causes',
   path: '/causes',
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/causes': typeof CausesRoute
+  '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/media': typeof MediaRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/causes': typeof CausesRoute
+  '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/media': typeof MediaRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/causes': typeof CausesRoute
+  '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
   '/media': typeof MediaRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/causes'
+    | '/contact'
     | '/events'
     | '/gallery'
     | '/media'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/causes'
+    | '/contact'
     | '/events'
     | '/gallery'
     | '/media'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/causes'
+    | '/contact'
     | '/events'
     | '/gallery'
     | '/media'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   CausesRoute: typeof CausesRoute
+  ContactRoute: typeof ContactRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
   MediaRoute: typeof MediaRoute
@@ -151,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/causes': {
       id: '/causes'
       path: '/causes'
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   CausesRoute: CausesRoute,
+  ContactRoute: ContactRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
   MediaRoute: MediaRoute,
