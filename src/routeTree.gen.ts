@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VolunteerRouteImport } from './routes/volunteer'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as CausesRouteImport } from './routes/causes'
 import { Route as AboutRouteImport } from './routes/about'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const VolunteerRoute = VolunteerRouteImport.update({
   id: '/volunteer',
   path: '/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/causes': typeof CausesRoute
   '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
   '/volunteer': typeof VolunteerRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/causes': typeof CausesRoute
   '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
   '/volunteer': typeof VolunteerRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,22 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/causes': typeof CausesRoute
   '/events': typeof EventsRoute
+  '/gallery': typeof GalleryRoute
   '/volunteer': typeof VolunteerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/causes' | '/events' | '/volunteer'
+  fullPaths: '/' | '/about' | '/causes' | '/events' | '/gallery' | '/volunteer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/causes' | '/events' | '/volunteer'
-  id: '__root__' | '/' | '/about' | '/causes' | '/events' | '/volunteer'
+  to: '/' | '/about' | '/causes' | '/events' | '/gallery' | '/volunteer'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/causes'
+    | '/events'
+    | '/gallery'
+    | '/volunteer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +92,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CausesRoute: typeof CausesRoute
   EventsRoute: typeof EventsRoute
+  GalleryRoute: typeof GalleryRoute
   VolunteerRoute: typeof VolunteerRoute
 }
 
@@ -86,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/volunteer'
       fullPath: '/volunteer'
       preLoaderRoute: typeof VolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -124,6 +148,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CausesRoute: CausesRoute,
   EventsRoute: EventsRoute,
+  GalleryRoute: GalleryRoute,
   VolunteerRoute: VolunteerRoute,
 }
 export const routeTree = rootRouteImport
