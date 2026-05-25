@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import aboutImg from "@/assets/about-student.jpg";
 import { ArrowRight, ShieldCheck, GraduationCap, HandHeart, Award } from "lucide-react";
+import amritaImg from "@/assets/team-amrita.jpg";
+import minakshiImg from "@/assets/team-minakshi.jpg";
+import vaibhavImg from "@/assets/team-vaibhav.jpg";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -20,6 +23,12 @@ const values = [
   { icon: HandHeart, title: "Care that lasts", body: "Counselling and career guidance until they're standing on their own." },
   { icon: ShieldCheck, title: "Accountable", body: "Section 8 company, governed by bylaws, fully 80G certified." },
   { icon: Award, title: "Local impact", body: "Rooted in Nashik, with families who know the children we serve." },
+];
+
+const team = [
+  { name: "Amrita Mishra", role: "Mentor", img: amritaImg },
+  { name: "Smt. Minakshi Agrawal", role: "Trustee", img: minakshiImg },
+  { name: "Vaibhav Jadhav", role: "Programs lead", img: vaibhavImg },
 ];
 
 function AboutPage() {
@@ -59,6 +68,29 @@ function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <div className="text-center max-w-2xl mx-auto">
+          <span className="text-xs font-medium uppercase tracking-widest text-primary">Our team</span>
+          <h2 className="mt-3 text-3xl md:text-4xl font-semibold">People behind the mission.</h2>
+          <p className="mt-4 text-muted-foreground">A small circle of trustees, mentors, and volunteers who show up — week after week — for the children of Nashik.</p>
+        </div>
+        <div className="mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+          {team.map((p, i) => (
+            <div key={p.name} className={`text-center animate-fade-up delay-${(i % 3) * 100 + 100}`}>
+              <div className="mx-auto h-40 w-40 rounded-full overflow-hidden ring-4 ring-primary-soft hover-lift">
+                <img src={p.img} alt={p.name} loading="lazy" width={512} height={512} className="h-full w-full object-cover" />
+              </div>
+              <h3 className="mt-5 font-semibold">{p.name}</h3>
+              <p className="text-sm text-muted-foreground">{p.role}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Link to="/volunteer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 font-medium hover:bg-muted transition">
+            Join the team <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
