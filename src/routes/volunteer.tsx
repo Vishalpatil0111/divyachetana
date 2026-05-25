@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import volunteerImg from "@/assets/volunteer.jpg";
 import { ArrowRight, Check } from "lucide-react";
+import amritaImg from "@/assets/team-amrita.jpg";
+import minakshiImg from "@/assets/team-minakshi.jpg";
+import vaibhavImg from "@/assets/team-vaibhav.jpg";
 
 export const Route = createFileRoute("/volunteer")({
   component: VolunteerPage,
@@ -16,9 +19,9 @@ export const Route = createFileRoute("/volunteer")({
 });
 
 const team = [
-  { name: "Amrita Mishra", role: "Mentor" },
-  { name: "Smt. Minakshi Agrawal", role: "Trustee" },
-  { name: "Vaibhav Jadhav", role: "Programs lead" },
+  { name: "Amrita Mishra", role: "Mentor", img: amritaImg },
+  { name: "Smt. Minakshi Agrawal", role: "Trustee", img: minakshiImg },
+  { name: "Vaibhav Jadhav", role: "Programs lead", img: vaibhavImg },
 ];
 
 const ways = [
@@ -57,13 +60,13 @@ function VolunteerPage() {
         <div className="max-w-6xl mx-auto px-6 py-20">
           <span className="text-xs font-medium uppercase tracking-widest text-primary">Our team</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold">People behind the mission.</h2>
-          <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-10">
             {team.map((p, i) => (
-              <div key={p.name} className={`rounded-2xl border border-border bg-background p-6 hover-lift animate-fade-up delay-${(i % 3) * 100 + 100}`}>
-                <div className="h-16 w-16 rounded-full bg-primary-soft text-primary grid place-items-center text-xl font-semibold">
-                  {p.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}
+              <div key={p.name} className={`text-center animate-fade-up delay-${(i % 3) * 100 + 100}`}>
+                <div className="mx-auto h-36 w-36 rounded-full overflow-hidden ring-4 ring-primary-soft hover-lift">
+                  <img src={p.img} alt={p.name} loading="lazy" width={512} height={512} className="h-full w-full object-cover" />
                 </div>
-                <h3 className="mt-4 font-semibold">{p.name}</h3>
+                <h3 className="mt-5 font-semibold">{p.name}</h3>
                 <p className="text-sm text-muted-foreground">{p.role}</p>
               </div>
             ))}
