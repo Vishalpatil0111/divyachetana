@@ -7,7 +7,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
+import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import appCss from "../styles.css?url";
 
@@ -137,6 +138,13 @@ const NAV = [
 ] as const;
 
 function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    const unsub = router.subscribe("onResolved", () => setOpen(false));
+    return unsub;
+  }, [router]);
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
@@ -159,13 +167,49 @@ function SiteHeader() {
             </Link>
           ))}
         </div>
-        <Link
-          to="/causes"
-          className="inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition shrink-0"
-        >
-          Donate <ArrowRight className="h-3.5 w-3.5" />
-        </Link>
+        <div className="flex items-center gap-2 shrink-0">
+          <Link
+            to="/causes"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition"
+          >
+            Donate <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="lg:hidden h-10 w-10 grid place-items-center rounded-full border border-border hover:bg-muted transition"
+          >
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
       </nav>
+      {open && (
+        <div className="lg:hidden border-t border-border/60 bg-background/95 backdrop-blur-md animate-fade-up">
+          <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-1 text-sm">
+            {NAV.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                onClick={() => setOpen(false)}
+                className="py-2.5 px-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition"
+                activeProps={{ className: "py-2.5 px-2 rounded-lg text-foreground font-medium bg-muted" }}
+                activeOptions={{ exact: true }}
+              >
+                {n.label}
+              </Link>
+            ))}
+            <Link
+              to="/causes"
+              onClick={() => setOpen(false)}
+              className="sm:hidden mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2.5 font-medium"
+            >
+              Donate <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
