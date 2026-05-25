@@ -30,19 +30,19 @@ function Index() {
         />
         <div className="max-w-6xl mx-auto px-6 pt-20 pb-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-secondary-foreground bg-background/70 px-3 py-1.5 rounded-full border border-border">
+            <span className="animate-fade-up inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-secondary-foreground bg-background/70 px-3 py-1.5 rounded-full border border-border">
               <Heart className="h-3 w-3 text-primary" /> Since 2021
             </span>
-            <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05]">
+            <h1 className="animate-fade-up delay-100 mt-6 text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05]">
               A brighter <span className="text-primary italic">tomorrow</span>,
               one child at a time.
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl">
+            <p className="animate-fade-up delay-200 mt-6 text-lg text-muted-foreground max-w-xl">
               Divya Chetna Foundation cares for children who lost their parents
               to COVID-19 — giving them the education, dignity, and love every
               child deserves.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="animate-fade-up delay-300 mt-8 flex flex-wrap gap-3">
               <Link
                 to="/causes"
                 className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:opacity-90 transition"
@@ -58,8 +58,8 @@ function Index() {
               </Link>
             </div>
           </div>
-          <div className="relative">
-            <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-primary/30 blur-2xl" />
+          <div className="relative animate-zoom-in delay-200">
+            <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-primary/30 blur-2xl animate-float-soft" />
             <img
               src={heroImg}
               alt="Children learning together"
@@ -80,7 +80,7 @@ function Index() {
           width={1200}
           height={1400}
           loading="lazy"
-          className="rounded-3xl object-cover aspect-[5/6] w-full"
+          className="rounded-3xl object-cover aspect-[5/6] w-full hover-lift"
         />
         <div>
           <span className="text-xs font-medium uppercase tracking-widest text-primary">Our Story</span>
@@ -126,7 +126,7 @@ function Index() {
             ].map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="rounded-2xl border border-border bg-background p-8 hover:-translate-y-1 transition-transform"
+                className="rounded-2xl border border-border bg-background p-8 hover-lift hover:shadow-md"
               >
                 <span className="inline-grid place-items-center h-11 w-11 rounded-xl bg-primary-soft text-primary">
                   <Icon className="h-5 w-5" />

@@ -19,6 +19,12 @@ const events = [
   { title: "Divya Chetna Foundation — Inception", day: "15", mon: "Aug", year: "2021", body: "On Independence Day, we publicly launched the foundation and our first cohort of supported students." },
 ];
 
+const articles = [
+  { title: "Why education can't wait", body: "Every month a child stays out of school the gap widens. Here's how a small, consistent contribution closes it." },
+  { title: "From loss to learning", body: "Stories of the families we walk alongside — counselling, tuition, and a quiet hand on the shoulder." },
+  { title: "Skilling the surviving parent", body: "We help mothers and fathers learn a trade so the household can stand on its own two feet again." },
+];
+
 function EventsPage() {
   return (
     <>
@@ -28,8 +34,11 @@ function EventsPage() {
         description="A running log of the work — book drives, festivals, and the small ceremonies that mean everything."
       />
       <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {events.map((e) => (
-          <article key={e.title} className="group rounded-3xl border border-border bg-card overflow-hidden hover:-translate-y-1 transition-transform">
+        {events.map((e, i) => (
+          <article
+            key={e.title}
+            className={`group rounded-3xl border border-border bg-card overflow-hidden hover-lift hover:shadow-md animate-fade-up delay-${(i % 3) * 100 + 100}`}
+          >
             <div className="relative aspect-[4/3]" style={{ background: "var(--gradient-warm)" }}>
               <div className="absolute top-4 left-4 bg-background rounded-2xl px-3 py-2 text-center shadow-sm">
                 <div className="text-2xl font-semibold leading-none">{e.day}</div>
@@ -42,6 +51,23 @@ function EventsPage() {
             </div>
           </article>
         ))}
+      </section>
+      <section className="bg-card border-y border-border">
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          <span className="text-xs font-medium uppercase tracking-widest text-primary">Articles</span>
+          <h2 className="mt-3 text-3xl md:text-4xl font-semibold">From our notebook.</h2>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {articles.map((a, i) => (
+              <div
+                key={a.title}
+                className={`rounded-2xl border border-border bg-background p-7 hover-lift animate-fade-up delay-${(i % 3) * 100 + 100}`}
+              >
+                <h3 className="font-semibold text-lg">{a.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{a.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );
