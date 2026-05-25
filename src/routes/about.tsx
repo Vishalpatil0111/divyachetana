@@ -31,7 +31,7 @@ function AboutPage() {
         description="Divya Chetna Social Foundation was founded in June 2021 with one objective — to make sure no child's education stops because of a loss they didn't choose."
       />
       <section className="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-14 items-center">
-        <img src={aboutImg} alt="A student studying" className="rounded-3xl object-cover aspect-[4/5] w-full" loading="lazy" />
+        <img src={aboutImg} alt="A student studying" className="rounded-3xl object-cover aspect-[4/5] w-full animate-zoom-in hover-lift" loading="lazy" />
         <div>
           <p className="text-muted-foreground leading-relaxed">
             The first and second waves of COVID-19 left lasting scars on Nashik and beyond. The death of a parent doesn't just bring grief — it derails a child's schooling, books, and dreams. We exist to make sure it doesn't.
