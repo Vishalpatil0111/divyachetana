@@ -9,9 +9,13 @@ import {
   Users,
   GraduationCap,
   HeartHandshake,
-  Stethoscope,
+  Briefcase,
   ShieldCheck,
   Quote,
+  FileText,
+  Award,
+  PlayCircle,
+  Sparkles,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
@@ -19,11 +23,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Divya Chetna Foundation — Education for every child" },
+      { title: "Divyachetana Foundation — Education for every child" },
       {
         name: "description",
         content:
-          "We support underprivileged students who lost parents to COVID-19 with education, care, and a path to a brighter future.",
+          "Dedicated to supporting the education of students who have lost their parents.",
       },
     ],
   }),
@@ -38,28 +42,29 @@ function Index() {
           <div className="space-y-7">
             <Reveal className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-primary-soft text-primary rounded-full text-[10px] font-bold tracking-[0.18em] uppercase">
               <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-              Divya Chetna Foundation · Est. 2021
+              Divyachetana Foundation · Est. 2021
             </Reveal>
             <Reveal as="h1" delay={80} className="text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-semibold text-foreground">
-              Building a <span className="italic text-primary">brighter</span> tomorrow.
+              Dedicated to <span className="italic text-primary">supporting the education</span> of students who have lost their parents.
             </Reveal>
             <Reveal as="p" delay={160} className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              For the children of Nashik who lost a parent to COVID-19 — we
-              shoulder the school fees, the books, the uniforms, and the long
-              walk back to a steady future.
+              Children who have lost a parent or earning family member due to
+              COVID-19, severe illnesses, accidents, heart attacks, or suicide
+              are supported through educational assistance including school
+              fees, books, uniforms, and guidance toward a stable future.
             </Reveal>
             <Reveal delay={240} className="flex flex-wrap items-center gap-4 pt-2">
               <Link
-                to="/causes"
+                to="/donate"
                 className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-3.5 font-semibold hover:opacity-90 transition shadow-lg shadow-foreground/10"
               >
-                Start donating <ArrowRight className="h-4 w-4" />
+                Donate now <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                to="/volunteer"
+                to="/apply"
                 className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 font-semibold text-foreground hover:border-primary hover:text-primary transition"
               >
-                Volunteer
+                Apply for scholarship
               </Link>
             </Reveal>
             <Reveal delay={320} className="flex items-center gap-6 pt-4 text-xs text-muted-foreground">
@@ -70,7 +75,7 @@ function Index() {
 
           <Reveal y={40} delay={120} className="relative">
             <div className="aspect-[4/5] rounded-3xl overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
-              <img src={heroImg} alt="Children of Nashik supported by Divya Chetna" className="w-full h-full object-cover" />
+              <img src={heroImg} alt="Children supported by Divyachetana" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-6 -left-6 md:-left-10 bg-background p-6 rounded-2xl shadow-xl max-w-xs border border-border">
               <Quote className="h-5 w-5 text-primary mb-3" />
@@ -139,8 +144,8 @@ function Index() {
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">What we do</span>
               <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight">Our core initiatives</h2>
               <p className="mt-4 text-muted-foreground">
-                Practical, long-term intervention that targets the root causes
-                of educational dropout among orphans.
+                Practical, long-term intervention — for the child, the
+                surviving mother, and the family.
               </p>
             </Reveal>
             <Reveal delay={120}>
@@ -152,12 +157,12 @@ function Index() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: GraduationCap, title: "Tuition Support", body: "Direct coverage of school and college fees so learning never pauses." },
-              { icon: BookOpen, title: "Learning Kits", body: "Books, uniforms, stationery and digital access — the daily tools of school." },
-              { icon: HeartHandshake, title: "Family Counselling", body: "A safe space for children and surviving parents to share, grieve and grow." },
-              { icon: Stethoscope, title: "Health & Nutrition", body: "Regular check-ups and meal support, so no child learns on an empty stomach." },
-              { icon: Users, title: "Mentorship", body: "Professionals and counsellors who guide students through life choices." },
-              { icon: ShieldCheck, title: "Govt. Aid Access", body: "Helping families navigate schemes and paperwork to unlock public benefits." },
+              { icon: GraduationCap, title: "Educational Support for Children", body: "School & college fees, books, uniforms and stationery — so learning never pauses for a child who has lost a parent." },
+              { icon: BookOpen, title: "Skill Development Program", body: "Tailoring, beauty, computer literacy and craft training for surviving mothers — practical skills that unlock real income." },
+              { icon: Briefcase, title: "Mothers' Job & Business", body: "We help these mothers find dignified jobs or start small home businesses to keep the household self-reliant." },
+              { icon: HeartHandshake, title: "Family Counselling", body: "A safe space for children and surviving parents to share, grieve and grow with our trained counsellors." },
+              { icon: Users, title: "Mentorship & Career Guidance", body: "Helping children prepare CVs, forms and applications to step confidently into their first job." },
+              { icon: ShieldCheck, title: "Govt. Aid Access", body: "Helping families navigate schemes and paperwork to unlock public benefits they're entitled to." },
             ].map((p, i) => (
               <Reveal key={p.title} delay={(i % 3) * 100} className="group p-8 rounded-3xl bg-background border border-border hover:border-primary/40 hover:bg-primary-soft/30 transition-all hover-lift">
                 <div className="w-12 h-12 bg-primary-soft text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -199,35 +204,67 @@ function Index() {
         </div>
       </section>
 
-      {/* === Donate / Bank === */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
-        <Reveal className="rounded-3xl p-10 md:p-14 relative overflow-hidden" style={{ background: "var(--gradient-warm)" }}>
-          <div className="grid md:grid-cols-12 gap-10 items-end">
-            <div className="md:col-span-7 space-y-5">
-              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">Support our mission</span>
-              <h2 className="text-3xl md:text-5xl font-semibold leading-[1.1]">
-                Your kindness becomes someone's <span className="italic text-primary">future.</span>
-              </h2>
-              <p className="text-muted-foreground max-w-xl">
-                Every contribution — monthly or one-time — keeps a child in
-                school and a family on its feet. Donations are 80G tax-exempt.
-              </p>
-              <Link to="/causes" className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-3.5 font-semibold hover:opacity-90 transition">
-                Donate now <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-            <div className="md:col-span-5 rounded-2xl bg-background/85 backdrop-blur border border-border p-6 text-sm">
-              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">Bank transfer</div>
-              <dl className="mt-4 space-y-2.5">
-                <Row k="A/C name" v="Divyachetna Social Foundation" />
-                <Row k="Bank" v="Saraswat Co-op. Bank" />
-                <Row k="Branch" v="Sharanpur Road, Nashik" />
-                <Row k="A/C No." v="610000000002042" mono />
-                <Row k="IFSC" v="SRCB0000084" mono />
-              </dl>
-            </div>
+      {/* === Transparency === */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <Reveal className="max-w-xl">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">Open books</span>
+            <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight">Built on transparency.</h2>
+            <p className="mt-4 text-muted-foreground">
+              You deserve to know where every rupee goes. Our certificates,
+              annual reports and programme list are open for everyone.
+            </p>
+          </Reveal>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { icon: Award, title: "Certificates", body: "Section 8 registration, 80G & 12A certifications available for download.", cta: "View certificates" },
+            { icon: FileText, title: "Annual Report", body: "Audited annual report detailing income, expenditure, and impact metrics.", cta: "Read latest report" },
+            { icon: Sparkles, title: "Programme List", body: "A live list of every active programme, beneficiary count and current status.", cta: "See programmes" },
+          ].map((t, i) => (
+            <Reveal key={t.title} delay={i * 100} className="p-8 rounded-3xl border border-border bg-card hover-lift">
+              <div className="w-12 h-12 bg-primary-soft text-primary rounded-2xl flex items-center justify-center mb-6">
+                <t.icon className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">{t.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{t.body}</p>
+              <span className="text-sm text-primary font-semibold inline-flex items-center gap-1.5">{t.cta} <ArrowRight className="h-3.5 w-3.5" /></span>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* === Videos from the field === */}
+      <section className="bg-card border-y border-border">
+        <div className="max-w-7xl mx-auto px-6 py-24">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <Reveal>
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">In their own words</span>
+              <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight">Videos from the field</h2>
+            </Reveal>
           </div>
-        </Reveal>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { t: "A mother learns to stitch", s: "Skill program · Nashik" },
+              { t: "Back to school: Class V", s: "Field visit · Aug 2024" },
+              { t: "First salary, first smile", s: "Job placement · 2024" },
+            ].map((v, i) => (
+              <Reveal key={v.t} delay={i * 100} className="group rounded-3xl overflow-hidden border border-border bg-background hover-lift">
+                <div className="relative aspect-video" style={{ background: "var(--gradient-warm)" }}>
+                  <div className="absolute inset-0 grid place-items-center">
+                    <span className="h-16 w-16 rounded-full bg-background/90 grid place-items-center text-primary group-hover:scale-110 transition-transform">
+                      <PlayCircle className="h-9 w-9" />
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-semibold leading-snug">{v.t}</h3>
+                  <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{v.s}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* === Stories === */}
@@ -235,7 +272,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <Reveal>
-              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">From the field</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">From the foundation</span>
               <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight">Stories & events</h2>
             </Reveal>
             <Reveal delay={100}>
@@ -277,14 +314,5 @@ function Index() {
         </div>
       </section>
     </>
-  );
-}
-
-function Row({ k, v, mono }: { k: string; v: string; mono?: boolean }) {
-  return (
-    <div className="flex items-start justify-between gap-4">
-      <dt className="text-muted-foreground shrink-0">{k}</dt>
-      <dd className={`text-right font-medium ${mono ? "font-mono tracking-tight" : ""}`}>{v}</dd>
-    </div>
   );
 }
