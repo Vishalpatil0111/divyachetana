@@ -61,7 +61,7 @@ function CausesPage() {
                     <span className="text-muted-foreground">Goal {inr(c.goal)}</span>
                   </div>
                 </div>
-                <Link to="/contact" className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 font-medium hover:opacity-90 transition">
+                <Link to="/donate" className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 font-medium hover:opacity-90 transition">
                   Donate <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -70,23 +70,12 @@ function CausesPage() {
         })}
       </section>
       <section className="max-w-6xl mx-auto px-6 pb-24">
-        <div className="rounded-3xl border border-border bg-card p-8 md:p-12">
-          <h2 className="text-2xl md:text-3xl font-semibold">Donate directly to our account</h2>
-          <p className="mt-3 text-sm text-muted-foreground">Every contribution is 80G tax-exempt. Drop us a note after transfer so we can send your receipt.</p>
-          <dl className="mt-8 grid sm:grid-cols-2 gap-x-10 gap-y-4 text-sm">
-            {[
-              ["Account Name", "Divyachetna Social Foundation"],
-              ["Bank", "The Saraswat Co-operative Bank Ltd."],
-              ["Branch", "Sharanpur Road Branch, Nashik"],
-              ["A/C No.", "610000000002042"],
-              ["IFSC", "SRCB0000084"],
-            ].map(([k, v]) => (
-              <div key={k} className="flex justify-between gap-4 border-b border-border pb-3">
-                <dt className="text-muted-foreground">{k}</dt>
-                <dd className="font-medium text-right">{v}</dd>
-              </div>
-            ))}
-          </dl>
+        <div className="rounded-3xl p-10 md:p-14 text-center" style={{ background: "var(--gradient-warm)" }}>
+          <h2 className="text-3xl md:text-4xl font-semibold">Ready to support a child today?</h2>
+          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">Donations are 80G tax-exempt. Pay securely online — receipt sent to your email.</p>
+          <Link to="/donate" className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-semibold hover:opacity-90 transition">
+            Donate online <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
     </>
