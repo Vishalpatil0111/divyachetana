@@ -11,6 +11,7 @@ import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter
 import { useState, useEffect } from "react";
 
 import appCss from "../styles.css?url";
+import logoAsset from "@/assets/divyachetana-icon.jpg.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -74,16 +75,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Redesigns a non-profit website with a clean, modern aesthetic, focusing on mission and impact." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Redesigns a non-profit website with a clean, modern aesthetic, focusing on mission and impact." },
+      { title: "Divyachetana Foundation" },
+      { name: "description", content: "Dedicated to supporting the education of students who have lost their parents." },
+      { name: "author", content: "Divyachetana" },
+      { property: "og:title", content: "Divyachetana Foundation" },
+      { property: "og:description", content: "Dedicated to supporting the education of students who have lost their parents." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Redesigns a non-profit website with a clean, modern aesthetic, focusing on mission and impact." },
+      { name: "twitter:title", content: "Divyachetana Foundation" },
+      { name: "twitter:description", content: "Dedicated to supporting the education of students who have lost their parents." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3583cc6e-3ae0-4ff4-9223-df82b57a0f96/id-preview-d036c10b--07358edc-afc8-4c28-af6a-67e8bd290290.lovable.app-1779863895981.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3583cc6e-3ae0-4ff4-9223-df82b57a0f96/id-preview-d036c10b--07358edc-afc8-4c28-af6a-67e8bd290290.lovable.app-1779863895981.png" },
     ],
@@ -137,6 +138,7 @@ const NAV = [
   { to: "/events", label: "Stories" },
   { to: "/gallery", label: "Gallery" },
   { to: "/volunteer", label: "Volunteer" },
+  { to: "/apply", label: "Apply" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -152,10 +154,8 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="h-8 w-8 rounded-full bg-primary grid place-items-center text-primary-foreground">
-            <Sparkles className="h-4 w-4" />
-          </span>
-          <span className="font-semibold tracking-tight">Divya Chetna</span>
+          <img src={logoAsset.url} alt="Divyachetana" className="h-9 w-9 object-contain" />
+          <span className="font-semibold tracking-tight text-base">Divyachetana</span>
         </Link>
         <div className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
           {NAV.map((n) => (
@@ -172,7 +172,7 @@ function SiteHeader() {
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <Link
-            to="/causes"
+            to="/donate"
             className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:opacity-90 transition"
           >
             Donate <ArrowRight className="h-3.5 w-3.5" />
@@ -204,7 +204,7 @@ function SiteHeader() {
               </Link>
             ))}
             <Link
-              to="/causes"
+              to="/donate"
               onClick={() => setOpen(false)}
               className="sm:hidden mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-primary text-primary-foreground px-4 py-2.5 font-medium"
             >
@@ -223,14 +223,13 @@ function SiteFooter() {
       <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <span className="h-8 w-8 rounded-full bg-primary grid place-items-center text-primary-foreground">
-              <Sparkles className="h-4 w-4" />
-            </span>
-            <span className="font-semibold">Divya Chetna Foundation</span>
+            <img src={logoAsset.url} alt="Divyachetana" className="h-9 w-9 object-contain" />
+            <span className="font-semibold">Divyachetana Foundation</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
-            Caring for children who lost their parents to COVID-19 — providing
-            education, dignity, and a path forward since 2021.
+            Dedicated to supporting the education of students who have lost
+            their parents — providing school fees, books, uniforms, and
+            guidance toward a stable future.
           </p>
           <div className="mt-5 flex items-center gap-3">
             <a href="#" aria-label="Instagram" className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"><Instagram className="h-4 w-4" /></a>
