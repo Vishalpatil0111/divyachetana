@@ -11,7 +11,7 @@ import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter
 import { useState, useEffect } from "react";
 
 import appCss from "../styles.css?url";
-import logoAsset from "@/assets/divyachetana-icon.jpg.asset.json";
+import logoAsset from "@/assets/divyachetana-wordmark.jpg.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -157,8 +157,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logoAsset.url} alt="Divyachetana" className="h-9 w-9 object-contain" />
-          <span className="font-semibold tracking-tight text-base">Divyachetana</span>
+          <img src={logoAsset.url} alt="Divyachetana" className="h-9 w-auto object-contain" />
         </Link>
         <div className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
           {NAV.map((n) => (
@@ -226,8 +225,7 @@ function SiteFooter() {
       <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <img src={logoAsset.url} alt="Divyachetana" className="h-9 w-9 object-contain" />
-            <span className="font-semibold">Divyachetana Foundation</span>
+            <img src={logoAsset.url} alt="Divyachetana Foundation" className="h-10 w-auto object-contain" />
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
             Dedicated to supporting the education of students who have lost
