@@ -11,7 +11,7 @@ import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter
 import { useState, useEffect } from "react";
 
 import appCss from "../styles.css?url";
-import logoAsset from "@/assets/divyachetana-wordmark.jpg.asset.json";
+import logoAsset from "@/assets/divyachetana-logo.png.asset.json";
 
 function NotFoundComponent() {
   return (
