@@ -6,10 +6,10 @@ export const Route = createFileRoute("/events")({
   component: EventsPage,
   head: () => ({
     meta: [
-      { title: "Stories — Divya Chetna Foundation" },
-      { name: "description", content: "Events, films, and articles from our work across Nashik since 2021." },
-      { property: "og:title", content: "Stories — Divya Chetna Foundation" },
-      { property: "og:description", content: "Events, films, and articles from the field." },
+      { title: "Stories & Gallery — Divyachetana Foundation" },
+      { name: "description", content: "Events, films, articles and moments from our work across Nashik since 2021." },
+      { property: "og:title", content: "Stories & Gallery — Divyachetana Foundation" },
+      { property: "og:description", content: "A visual and written diary from the field." },
     ],
   }),
 });
@@ -32,13 +32,25 @@ const videos = [
   { title: "Children Awarded for Achievements", url: "https://www.youtube.com/", caption: "Celebrating wins, big and small." },
 ];
 
+const tiles = [
+  { c: "from-orange-200 to-amber-100", h: "tall" },
+  { c: "from-rose-200 to-orange-100", h: "short" },
+  { c: "from-amber-200 to-yellow-100", h: "short" },
+  { c: "from-orange-100 to-rose-200", h: "tall" },
+  { c: "from-yellow-200 to-orange-200", h: "short" },
+  { c: "from-rose-100 to-amber-200", h: "tall" },
+  { c: "from-amber-100 to-orange-300", h: "short" },
+  { c: "from-orange-200 to-rose-100", h: "tall" },
+  { c: "from-rose-200 to-amber-200", h: "short" },
+] as const;
+
 function EventsPage() {
   return (
     <>
       <PageHero
         eyebrow="From the ground"
-        title="Stories from the foundation."
-        description="Events, short films, and articles — a running log of the work and the people behind it."
+        title="Stories & gallery."
+        description="Events, films, articles and moments from the field — a running diary of the work and the people behind it."
       />
       <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((e, i) => (
