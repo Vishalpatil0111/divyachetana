@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -137,10 +137,7 @@ function RootComponent() {
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/causes", label: "Causes" },
   { to: "/events", label: "Stories" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/volunteer", label: "Volunteer" },
   { to: "/apply", label: "Apply" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -241,7 +238,7 @@ function SiteFooter() {
         <div className="text-sm">
           <div className="font-medium mb-3">Explore</div>
           <ul className="space-y-2 text-muted-foreground">
-            {NAV.slice(1, 6).map((n) => (
+            {NAV.slice(1).map((n) => (
               <li key={n.to}>
                 <Link to={n.to} className="hover:text-foreground">{n.label}</Link>
               </li>

@@ -149,8 +149,8 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Fraunces', Georgia, serif;
-    letter-spacing: -0.02em;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.025em;
   }
 }
 

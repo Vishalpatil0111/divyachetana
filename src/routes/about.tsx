@@ -88,8 +88,8 @@ function AboutPage() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Link to="/volunteer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 font-medium hover:bg-muted transition">
-            Join the team <ArrowRight className="h-4 w-4" />
+          <Link to="/apply" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 font-medium hover:bg-muted transition">
+            Apply for scholarship <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
@@ -97,11 +97,11 @@ function AboutPage() {
         <h2 className="text-3xl md:text-5xl font-semibold max-w-2xl mx-auto">Walk with us.</h2>
         <p className="mt-5 text-muted-foreground max-w-xl mx-auto">Donate, volunteer, or simply share the work. Every small act adds up.</p>
         <div className="mt-8 flex flex-wrap gap-3 justify-center">
-          <Link to="/causes" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:opacity-90 transition">
-            Support a cause <ArrowRight className="h-4 w-4" />
+          <Link to="/donate" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:opacity-90 transition">
+            Donate now <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link to="/volunteer" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 font-medium hover:bg-muted transition">
-            Join the team
+          <Link to="/apply" className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 font-medium hover:bg-muted transition">
+            Apply for scholarship
           </Link>
         </div>
       </section>
