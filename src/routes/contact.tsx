@@ -7,9 +7,9 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
   head: () => ({
     meta: [
-      { title: "Contact — Divya Chetna Foundation" },
-      { name: "description", content: "Reach the foundation — Malad West office, phone, email, and a quick message form." },
-      { property: "og:title", content: "Contact — Divya Chetna Foundation" },
+      { title: "Contact -Divya Chetna Foundation" },
+      { name: "description", content: "Reach the foundation -Malad West office, phone, email, and a quick message form." },
+      { property: "og:title", content: "Contact -Divya Chetna Foundation" },
       { property: "og:description", content: "Say hello. We read every message." },
     ],
   }),
@@ -49,7 +49,7 @@ function ContactPage() {
           <button type="submit" className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-medium hover:opacity-90 transition">
             Send message <Send className="h-4 w-4" />
           </button>
-          {sent && <p className="mt-4 text-sm text-primary">Thanks — we'll be in touch shortly.</p>}
+          {sent && <p className="mt-4 text-sm text-primary">Thanks -we'll be in touch shortly.</p>}
         </form>
       </section>
     </>

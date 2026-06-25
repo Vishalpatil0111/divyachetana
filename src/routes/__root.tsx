@@ -11,7 +11,6 @@ import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter
 import { useState, useEffect } from "react";
 
 import appCss from "../styles.css?url";
-import logoAsset from "@/assets/divyachetana-logo.png.asset.json";
 
 function NotFoundComponent() {
   return (
@@ -95,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Forum&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -154,7 +153,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logoAsset.url} alt="Divyachetana" className="h-9 w-auto object-contain" />
+          <img src="/divyachetana-logo.png" alt="Divyachetana" className="h-14 w-auto object-contain" />
         </Link>
         <div className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
           {NAV.map((n) => (
@@ -222,11 +221,11 @@ function SiteFooter() {
       <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <img src={logoAsset.url} alt="Divyachetana Foundation" className="h-10 w-auto object-contain" />
+            <img src="/divyachetana-logo.png" alt="Divyachetana Foundation" className="h-10 w-auto object-contain" />
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
             Dedicated to supporting the education of students who have lost
-            their parents — providing school fees, books, uniforms, and
+            their parents -providing school fees, books, uniforms, and
             guidance toward a stable future.
           </p>
           <div className="mt-5 flex items-center gap-3">

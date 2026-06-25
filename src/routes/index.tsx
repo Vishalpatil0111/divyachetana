@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import heroImg from "@/assets/hero-children.jpg";
-import aboutImg from "@/assets/about-student.jpg";
+
 import {
   ArrowRight,
   BookOpen,
@@ -10,10 +9,6 @@ import {
   HeartHandshake,
   ShieldCheck,
   Quote,
-  FileText,
-  Award,
-  PlayCircle,
-  Sparkles,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
@@ -21,7 +16,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Divyachetana Foundation — Education for every child" },
+      { title: "Divyachetana Foundation -Education for every child" },
       {
         name: "description",
         content:
@@ -34,7 +29,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
-      {/* === Hero — Warm editorial split === */}
+      {/* === Hero -Warm editorial split === */}
       <section className="relative">
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-7">
@@ -43,26 +38,31 @@ function Index() {
               Divyachetana Foundation · Est. 2021
             </Reveal>
             <Reveal as="h1" delay={80} className="text-3xl md:text-4xl lg:text-5xl leading-[1.15] font-semibold text-foreground">
-              Dedicated to <span className="text-primary">supporting the education</span> of students who have lost their parents.
+              Because no child should lose education along with their parent.
             </Reveal>
             <Reveal as="p" delay={160} className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Children who have lost a parent or earning family member due to
-              COVID-19, severe illnesses, accidents, heart attacks, or suicide
-              are supported through educational assistance including school
-              fees, books, uniforms, and guidance toward a stable future.
+              Supporting children affected by COVID, severe illness, accidents,
+              heart attacks, financial crises, and loss of earning members
+              through education and long-term care.
             </Reveal>
-            <Reveal delay={240} className="flex flex-wrap items-center gap-4 pt-2">
+            <Reveal delay={240} className="flex flex-wrap items-center gap-3 pt-4">
+              <Link
+                to="/apply"
+                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 font-semibold hover:opacity-90 transition shadow-lg shadow-primary/10"
+              >
+                Sponsor a Child
+              </Link>
               <Link
                 to="/donate"
                 className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-7 py-3.5 font-semibold hover:opacity-90 transition shadow-lg shadow-foreground/10"
               >
-                Donate now <ArrowRight className="h-4 w-4" />
+                Donate for Education
               </Link>
               <Link
-                to="/apply"
+                to="/about"
                 className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 font-semibold text-foreground hover:border-primary hover:text-primary transition"
               >
-                Apply for scholarship
+                See Our Impact
               </Link>
             </Reveal>
             <Reveal delay={320} className="flex items-center gap-6 pt-4 text-xs text-muted-foreground">
@@ -72,8 +72,8 @@ function Index() {
           </div>
 
           <Reveal y={40} delay={120} className="relative">
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
-              <img src={heroImg} alt="Children supported by Divyachetana" className="w-full h-full object-cover" />
+            <div className="h-96 md:h-[34rem] lg:h-[40rem] rounded-3xl overflow-hidden" style={{ boxShadow: "var(--shadow-warm)" }}>
+              <img src="/images/New folder/WhatsApp Image 2024-12-10 at 8.07.39 AM (1).jpeg" alt="Children supported by Divyachetana" className="w-full h-full object-cover" />
             </div>
             <div className="absolute -bottom-6 -left-6 md:-left-10 bg-background p-6 rounded-2xl shadow-xl max-w-xs border border-border">
               <Quote className="h-5 w-5 text-primary mb-3" />
@@ -91,10 +91,10 @@ function Index() {
       </section>
 
       {/* === Impact Band === */}
-      <section className="bg-card border-y border-border">
+      {/* <section className="bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-10">
           {[
-            { k: "125+", v: "Students Supported" },
+            { k: "200+", v: "Students Supported" },
             { k: "12", v: "Partner Schools" },
             { k: "85%", v: "School Retention" },
             { k: "₹2.4M", v: "Aid Distributed" },
@@ -105,12 +105,12 @@ function Index() {
             </Reveal>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* === About === */}
       <section className="max-w-7xl mx-auto px-6 py-24 md:py-28 grid md:grid-cols-12 gap-12 items-center">
         <Reveal y={40} className="md:col-span-5">
-          <img src={aboutImg} alt="A supported student at study" className="w-full aspect-[4/5] object-cover rounded-3xl" />
+          <img src="/images/New folder/WhatsApp Image 2026-02-14 at 12.42.32 PM.jpeg" alt="A supported student at study" className="w-full aspect-[4/5] object-cover rounded-3xl" />
         </Reveal>
         <div className="md:col-span-7 space-y-6">
           <Reveal as="h2" className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
@@ -144,7 +144,7 @@ function Index() {
               </h2>
               <p className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">Our core initiatives for every child we support</p>
               <p className="mt-4 text-muted-foreground">
-                Practical, long-term support — so no child's education ever
+                Practical, long-term support -so no child's education ever
                 stops because of a loss they didn't choose.
               </p>
             </Reveal>
@@ -153,9 +153,9 @@ function Index() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: GraduationCap, title: "School & College Fees", body: "We cover school and college fees so learning never pauses for a child who has lost a parent." },
-              { icon: BookOpen, title: "Books, Uniforms & Kits", body: "Books, notebooks, stationery and uniforms — everything a child needs to walk into a classroom with dignity." },
+              { icon: BookOpen, title: "Books, Uniforms & Kits", body: "Books, notebooks, stationery and uniforms -everything a child needs to walk into a classroom with dignity." },
               { icon: HeartHandshake, title: "Counselling & Care", body: "A safe space for children to share, grieve and grow with our trained counsellors." },
-              { icon: Users, title: "Mentorship & Career Guidance", body: "Mentors who help children prepare CVs and applications — and step confidently into their first job." },
+              { icon: Users, title: "Mentorship & Career Guidance", body: "Mentors who help children prepare CVs and applications -and step confidently into their first job." },
             ].map((p, i) => (
               <Reveal key={p.title} delay={(i % 4) * 90} className="group p-8 rounded-3xl bg-background border border-border hover:border-primary/40 hover:bg-primary-soft/30 transition-all hover-lift">
                 <div className="w-12 h-12 bg-primary-soft text-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -169,82 +169,40 @@ function Index() {
         </div>
       </section>
 
-      {/* === Transparency === */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <Reveal className="max-w-xl">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
-              Built on <span className="text-primary">transparency</span>
-            </h2>
-            <p className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">Open books, open programmes</p>
-            <p className="mt-4 text-muted-foreground">
-              You deserve to know where every rupee goes. Our certificates,
-              annual reports and programme list are open for everyone.
-            </p>
-          </Reveal>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { icon: Award, title: "Certificates", body: "Section 8 registration, 80G & 12A certifications available for download.", cta: "View certificates" },
-            { icon: FileText, title: "Annual Report", body: "Audited annual report detailing income, expenditure, and impact metrics.", cta: "Read latest report" },
-            { icon: Sparkles, title: "Programme List", body: "A live list of every active programme, beneficiary count and current status.", cta: "See programmes" },
-          ].map((t, i) => (
-            <Reveal key={t.title} delay={i * 100} className="p-8 rounded-3xl border border-border bg-card hover-lift">
-              <div className="w-12 h-12 bg-primary-soft text-primary rounded-2xl flex items-center justify-center mb-6">
-                <t.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{t.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{t.body}</p>
-              <span className="text-sm text-primary font-semibold inline-flex items-center gap-1.5">{t.cta} <ArrowRight className="h-3.5 w-3.5" /></span>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* === Videos from the field === */}
+      {/* === Certificates === */}
       <section className="bg-card border-y border-border">
-        <div className="max-w-7xl mx-auto px-6 py-24">
+        <div className="max-w-6xl mx-auto px-6 py-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <Reveal>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
-                Videos from the <span className="text-primary">field</span>
-              </h2>
-              <p className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">In their own words</p>
-            </Reveal>
+            <div className="max-w-xl">
+              <span className="text-xs font-medium uppercase tracking-widest text-primary">Certificates</span>
+              <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">Verified, audited, and available.</h2>
+              <p className="mt-4 text-muted-foreground">Our registration certificates are available in full so everyone can verify our compliance.</p>
+            </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-6 sm:grid-cols-2">
             {[
-              { t: "A mother learns to stitch", s: "Skill program · Nashik" },
-              { t: "Back to school: Class V", s: "Field visit · Aug 2024" },
-              { t: "First salary, first smile", s: "Job placement · 2024" },
-            ].map((v, i) => (
-              <Reveal key={v.t} delay={i * 100} className="group rounded-3xl overflow-hidden border border-border bg-background hover-lift">
-                <div className="relative aspect-video" style={{ background: "var(--gradient-warm)" }}>
-                  <div className="absolute inset-0 grid place-items-center">
-                    <span className="h-16 w-16 rounded-full bg-background/90 grid place-items-center text-primary group-hover:scale-110 transition-transform">
-                      <PlayCircle className="h-9 w-9" />
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-semibold leading-snug">{v.t}</h3>
-                  <p className="mt-2 text-xs uppercase tracking-widest text-muted-foreground">{v.s}</p>
-                </div>
-              </Reveal>
+              { src: "/images/certificates/CSRCERTIFICATE.jpeg", alt: "CSR certificate" },
+              { src: "/images/certificates/DivyachetnaCOI.jpeg", alt: "Certificate of incorporation" },
+            ].map((image) => (
+              <div key={image.src} className="overflow-hidden rounded-3xl border border-border bg-background shadow-sm">
+                <img src={image.src} alt={image.alt} className="h-[36rem] w-full object-cover transition duration-300 ease-in-out hover:scale-105" />
+              </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Videos section removed per request */}
 
       {/* === Stories === */}
       <section className="bg-card border-t border-border">
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <Reveal>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
+              <span className="text-xs font-medium uppercase tracking-widest text-primary">From the foundation</span>
+              <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
                 Stories & <span className="text-primary">events</span>
               </h2>
-              <p className="mt-5 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">From the foundation</p>
             </Reveal>
             <Reveal delay={100}>
               <Link to="/events" className="text-primary font-semibold border-b-2 border-primary/20 hover:border-primary pb-1 transition inline-flex items-center gap-2">
@@ -275,13 +233,32 @@ function Index() {
 
       {/* === Partners === */}
       <section className="border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 py-16 text-center">
-          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-muted-foreground mb-10">Supported by</p>
-          <Reveal className="flex flex-wrap justify-center gap-x-14 gap-y-6 opacity-60">
-            {["Contiloe Pictures", "GSEAMS", "RK Academy", "WooCommerce", "Ved World", "Eduauraa"].map((s) => (
-              <span key={s} className="text-lg font-semibold text-muted-foreground tracking-tight">{s}</span>
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <span className="text-xs font-medium uppercase tracking-widest text-primary mb-10 block text-center">Supported by</span>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              "T D K INDIA PVT LTD",
+              "WINJIT TECHNOLOGIES PVT LTD",
+              "Fox Welfare founetion",
+              "M/S NEW INDIA CUPROTEC",
+              "TDK INDIA PVT LTD",
+              "JAVAHARLAL PORT AUTOORTY",
+              "M.D.Industries",
+              "ADAM FABRIWORK PVT LTD",
+              "TAPARIA TOOLS LTD",
+              "NEW INDIA EXTRUSIONS PVT LTD",
+              "ELECTRO CRIMP COTACTS INDIA P L",
+              "EMPIRE SPICISES AND FOOD LTD",
+              "LUCY ELECTRIC INDIA PVT LTD",
+              "ACRON PLAST PVT LTD",
+              "Ms Saini Enngg Waork",
+              "L C G ALUMINIUM INDUSTIES PVT LTD",
+            ].map((s) => (
+              <span key={s} className="inline-flex items-center px-5 py-2.5 rounded-full border border-border bg-background text-xs font-semibold text-muted-foreground transition hover:border-primary hover:text-foreground">
+                {s}
+              </span>
             ))}
-          </Reveal>
+          </div>
         </div>
       </section>
     </>

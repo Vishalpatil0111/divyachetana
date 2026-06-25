@@ -7,9 +7,9 @@ export const Route = createFileRoute("/donate")({
   component: DonatePage,
   head: () => ({
     meta: [
-      { title: "Donate — Divyachetana Foundation" },
+      { title: "Donate -Divyachetana Foundation" },
       { name: "description", content: "Donate securely online via Razorpay. 80G tax exempt." },
-      { property: "og:title", content: "Donate — Divyachetana Foundation" },
+      { property: "og:title", content: "Donate -Divyachetana Foundation" },
       { property: "og:description", content: "Your gift puts a child back in school." },
     ],
   }),
@@ -41,7 +41,7 @@ function DonatePage() {
     e.preventDefault();
     if (!finalAmount || finalAmount < 10) return;
     setPaying(true);
-    // Mock — simulate opening Razorpay checkout
+    // Mock -simulate opening Razorpay checkout
     setTimeout(() => {
       setPaying(false);
       setPaid(true);
@@ -67,7 +67,7 @@ function DonatePage() {
       <PageHero
         eyebrow="Make a donation"
         title="Fund a child's school year."
-        description="Pay securely via Razorpay — UPI, cards, netbanking. 80G tax exempt."
+        description="Pay securely via Razorpay -UPI, cards, netbanking. 80G tax exempt."
       />
       <section className="max-w-6xl mx-auto px-6 py-16 grid lg:grid-cols-5 gap-10">
         <aside className="lg:col-span-2 space-y-5">
@@ -166,7 +166,7 @@ function DonatePage() {
           >
             {paying ? "Opening Razorpay…" : (<>Pay ₹{(finalAmount || 0).toLocaleString("en-IN")} via Razorpay <ArrowRight className="h-4 w-4" /></>)}
           </button>
-          <p className="text-xs text-muted-foreground text-center">By donating you agree to our terms. Test mode — backend integration pending.</p>
+          <p className="text-xs text-muted-foreground text-center">By donating you agree to our terms. Test mode -backend integration pending.</p>
         </form>
       </section>
     </>

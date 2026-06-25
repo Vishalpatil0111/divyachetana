@@ -1,3 +1,4 @@
+
 @import "tailwindcss" source(none);
 @import "tw-animate-css";
 @source "../src";
@@ -149,7 +150,7 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    font-family: 'Forum', serif;
     letter-spacing: -0.025em;
   }
 }

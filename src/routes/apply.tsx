@@ -7,10 +7,10 @@ export const Route = createFileRoute("/apply")({
   component: ApplyPage,
   head: () => ({
     meta: [
-      { title: "Apply for Scholarship — Divyachetana Foundation" },
+      { title: "Apply for Scholarship -Divyachetana Foundation" },
       { name: "description", content: "Application form for children seeking educational support from Divyachetana." },
-      { property: "og:title", content: "Apply for Scholarship — Divyachetana Foundation" },
-      { property: "og:description", content: "Tell us about the child — we'll review your application within 7 days." },
+      { property: "og:title", content: "Apply for Scholarship -Divyachetana Foundation" },
+      { property: "og:description", content: "Tell us about the child -we'll review your application within 7 days." },
     ],
   }),
 });
