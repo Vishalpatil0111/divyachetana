@@ -1,0 +1,11 @@
+.git
+.gitignore
+README.md
+.eslintignore
+.prettierignore
+eslint.config.js
+wrangler.jsonc
+.lovable
+.tanstack
+bunfig.toml
+components.json
