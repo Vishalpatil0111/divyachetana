@@ -7,7 +7,18 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Phone, Mail, MapPin, Instagram, Facebook, Twitter, Menu, X } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Phone,
+  Mail,
+  MapPin,
+  Instagram,
+  Facebook,
+  Twitter,
+  Menu,
+  X,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 
 import appCss from "../styles.css?url";
@@ -75,17 +86,34 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Divyachetana Foundation" },
-      { name: "description", content: "Dedicated to supporting the education of students who have lost their parents." },
+      {
+        name: "description",
+        content: "Dedicated to supporting the education of students who have lost their parents.",
+      },
       { name: "author", content: "Divyachetana" },
       { property: "og:title", content: "Divyachetana Foundation" },
-      { property: "og:description", content: "Dedicated to supporting the education of students who have lost their parents." },
+      {
+        property: "og:description",
+        content: "Dedicated to supporting the education of students who have lost their parents.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Divyachetana Foundation" },
-      { name: "twitter:description", content: "Dedicated to supporting the education of students who have lost their parents." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3583cc6e-3ae0-4ff4-9223-df82b57a0f96/id-preview-d036c10b--07358edc-afc8-4c28-af6a-67e8bd290290.lovable.app-1779863895981.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3583cc6e-3ae0-4ff4-9223-df82b57a0f96/id-preview-d036c10b--07358edc-afc8-4c28-af6a-67e8bd290290.lovable.app-1779863895981.png" },
+      {
+        name: "twitter:description",
+        content: "Dedicated to supporting the education of students who have lost their parents.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3583cc6e-3ae0-4ff4-9223-df82b57a0f96/id-preview-d036c10b--07358edc-afc8-4c28-af6a-67e8bd290290.lovable.app-1779863895981.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3583cc6e-3ae0-4ff4-9223-df82b57a0f96/id-preview-d036c10b--07358edc-afc8-4c28-af6a-67e8bd290290.lovable.app-1779863895981.png",
+      },
     ],
     links: [
       {
@@ -94,7 +122,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Forum&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Forum&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -153,7 +184,11 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border/60">
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src="/divyachetana-logo.png" alt="Divyachetana" className="h-14 w-auto object-contain" />
+          <img
+            src="/divyachetana-logo.png"
+            alt="Divyachetana"
+            className="h-14 w-auto object-contain"
+          />
         </Link>
         <div className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
           {NAV.map((n) => (
@@ -195,7 +230,9 @@ function SiteHeader() {
                 to={n.to}
                 onClick={() => setOpen(false)}
                 className="py-2.5 px-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition"
-                activeProps={{ className: "py-2.5 px-2 rounded-lg text-foreground font-medium bg-muted" }}
+                activeProps={{
+                  className: "py-2.5 px-2 rounded-lg text-foreground font-medium bg-muted",
+                }}
                 activeOptions={{ exact: true }}
               >
                 {n.label}
@@ -221,17 +258,38 @@ function SiteFooter() {
       <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <img src="/divyachetana-logo.png" alt="Divyachetana Foundation" className="h-10 w-auto object-contain" />
+            <img
+              src="/divyachetana-logo.png"
+              alt="Divyachetana Foundation"
+              className="h-10 w-auto object-contain"
+            />
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm leading-relaxed">
-            Dedicated to supporting the education of students who have lost
-            their parents -providing school fees, books, uniforms, and
-            guidance toward a stable future.
+            Dedicated to supporting the education of students who have lost their parents -providing
+            school fees, books, uniforms, and guidance toward a stable future.
           </p>
           <div className="mt-5 flex items-center gap-3">
-            <a href="#" aria-label="Instagram" className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"><Instagram className="h-4 w-4" /></a>
-            <a href="#" aria-label="Facebook" className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"><Facebook className="h-4 w-4" /></a>
-            <a href="#" aria-label="Twitter" className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"><Twitter className="h-4 w-4" /></a>
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="#"
+              aria-label="Twitter"
+              className="h-9 w-9 grid place-items-center rounded-full border border-border hover:bg-muted transition"
+            >
+              <Twitter className="h-4 w-4" />
+            </a>
           </div>
         </div>
         <div className="text-sm">
@@ -239,7 +297,9 @@ function SiteFooter() {
           <ul className="space-y-2 text-muted-foreground">
             {NAV.slice(1).map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className="hover:text-foreground">{n.label}</Link>
+                <Link to={n.to} className="hover:text-foreground">
+                  {n.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -247,9 +307,25 @@ function SiteFooter() {
         <div className="text-sm">
           <div className="font-medium mb-3">Reach us</div>
           <ul className="space-y-2 text-muted-foreground">
-            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0" /><span>A wing 1402 Galaxy Height 57, Jankalyan Nagar, Malad West 400095</span></li>
-            <li><a href="tel:3072129320" className="flex items-center gap-2 hover:text-foreground"><Phone className="h-4 w-4" /><span>(307) 212-9320</span></a></li>
-            <li><a href="mailto:info@divyachetna.org.in" className="flex items-center gap-2 hover:text-foreground"><Mail className="h-4 w-4" /><span>info@divyachetna.org.in</span></a></li>
+            <li className="flex gap-2">
+              <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+              <span>A wing 1402 Galaxy Height 57, Jankalyan Nagar, Malad West 400095</span>
+            </li>
+            <li>
+              <a href="tel:3072129320" className="flex items-center gap-2 hover:text-foreground">
+                <Phone className="h-4 w-4" />
+                <span>(307) 212-9320</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:info@divyachetna.org.in"
+                className="flex items-center gap-2 hover:text-foreground"
+              >
+                <Mail className="h-4 w-4" />
+                <span>info@divyachetna.org.in</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

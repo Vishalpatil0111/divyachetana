@@ -1,4 +1,11 @@
-import { useEffect, useRef, useState, type ReactNode, type ElementType, type CSSProperties } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type ElementType,
+  type CSSProperties,
+} from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -46,14 +53,15 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
   }, [once]);
 
   const composed: CSSProperties = {
-    transition: "opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)",
+    transition:
+      "opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)",
     transitionDelay: `${delay}ms`,
     opacity: shown ? 1 : 0,
     transform: shown ? "translate3d(0,0,0)" : `translate3d(0,${y}px,0)`,

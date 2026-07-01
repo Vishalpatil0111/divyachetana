@@ -52,11 +52,20 @@ function DonatePage() {
   if (paid) {
     return (
       <>
-        <PageHero eyebrow="Thank you" title="Your donation matters." description="A receipt has been emailed to you. Welcome to the Divyachetana family." />
+        <PageHero
+          eyebrow="Thank you"
+          title="Your donation matters."
+          description="A receipt has been emailed to you. Welcome to the Divyachetana family."
+        />
         <section className="max-w-3xl mx-auto px-6 py-20 text-center">
           <CheckCircle2 className="h-16 w-16 text-primary mx-auto mb-6" />
-          <h2 className="text-3xl font-semibold">₹{finalAmount.toLocaleString("en-IN")} received</h2>
-          <p className="mt-3 text-muted-foreground">Your {frequency} donation will go directly toward fees, books and uniforms for a child in need.</p>
+          <h2 className="text-3xl font-semibold">
+            ₹{finalAmount.toLocaleString("en-IN")} received
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            Your {frequency} donation will go directly toward fees, books and uniforms for a child
+            in need.
+          </p>
         </section>
       </>
     );
@@ -75,20 +84,37 @@ function DonatePage() {
             <Heart className="h-5 w-5 text-primary mb-3" />
             <h3 className="font-semibold text-lg">Where your money goes</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <li className="flex justify-between gap-3"><span>₹500</span><span>One month of stationery</span></li>
-              <li className="flex justify-between gap-3"><span>₹1,000</span><span>Books for one term</span></li>
-              <li className="flex justify-between gap-3"><span>₹2,500</span><span>School uniform set</span></li>
-              <li className="flex justify-between gap-3"><span>₹10,000</span><span>One year of school fees</span></li>
+              <li className="flex justify-between gap-3">
+                <span>₹500</span>
+                <span>One month of stationery</span>
+              </li>
+              <li className="flex justify-between gap-3">
+                <span>₹1,000</span>
+                <span>Books for one term</span>
+              </li>
+              <li className="flex justify-between gap-3">
+                <span>₹2,500</span>
+                <span>School uniform set</span>
+              </li>
+              <li className="flex justify-between gap-3">
+                <span>₹10,000</span>
+                <span>One year of school fees</span>
+              </li>
             </ul>
           </div>
           <div className="rounded-3xl border border-border bg-primary-soft/40 p-7 text-sm">
             <ShieldCheck className="h-5 w-5 text-primary mb-3" />
             <p className="font-medium text-foreground">Secure payment via Razorpay</p>
-            <p className="mt-2 text-muted-foreground">Section 8 registered · 80G tax exempt · Receipt sent to email</p>
+            <p className="mt-2 text-muted-foreground">
+              Section 8 registered · 80G tax exempt · Receipt sent to email
+            </p>
           </div>
         </aside>
 
-        <form onSubmit={handleRazorpay} className="lg:col-span-3 rounded-3xl border border-border bg-card p-8 md:p-10 space-y-7">
+        <form
+          onSubmit={handleRazorpay}
+          className="lg:col-span-3 rounded-3xl border border-border bg-card p-8 md:p-10 space-y-7"
+        >
           <div>
             <label className="text-sm font-semibold">Donation type</label>
             <div className="mt-2 grid grid-cols-2 gap-2 p-1 bg-muted rounded-full">
@@ -112,7 +138,10 @@ function DonatePage() {
                 <button
                   key={a}
                   type="button"
-                  onClick={() => { setAmount(a); setCustom(""); }}
+                  onClick={() => {
+                    setAmount(a);
+                    setCustom("");
+                  }}
                   className={`py-3 rounded-xl border text-sm font-semibold transition ${!custom && amount === a ? "bg-primary text-primary-foreground border-primary" : "bg-background border-border hover:border-primary"}`}
                 >
                   {a.toLocaleString("en-IN")}
@@ -130,12 +159,38 @@ function DonatePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
-            <Field label="Full name" value={form.name} onChange={(v) => setForm({ ...form, name: v })} required />
-            <Field label="Email" type="email" value={form.email} onChange={(v) => setForm({ ...form, email: v })} required />
-            <Field label="Phone" type="tel" value={form.phone} onChange={(v) => setForm({ ...form, phone: v })} required />
-            <Field label="PAN (for 80G receipt)" value={form.pan} onChange={(v) => setForm({ ...form, pan: v.toUpperCase() })} placeholder="ABCDE1234F" />
+            <Field
+              label="Full name"
+              value={form.name}
+              onChange={(v) => setForm({ ...form, name: v })}
+              required
+            />
+            <Field
+              label="Email"
+              type="email"
+              value={form.email}
+              onChange={(v) => setForm({ ...form, email: v })}
+              required
+            />
+            <Field
+              label="Phone"
+              type="tel"
+              value={form.phone}
+              onChange={(v) => setForm({ ...form, phone: v })}
+              required
+            />
+            <Field
+              label="PAN (for 80G receipt)"
+              value={form.pan}
+              onChange={(v) => setForm({ ...form, pan: v.toUpperCase() })}
+              placeholder="ABCDE1234F"
+            />
           </div>
-          <Field label="Address" value={form.address} onChange={(v) => setForm({ ...form, address: v })} />
+          <Field
+            label="Address"
+            value={form.address}
+            onChange={(v) => setForm({ ...form, address: v })}
+          />
 
           <div>
             <label className="text-sm font-semibold">Feedback / Suggestions</label>
@@ -150,11 +205,21 @@ function DonatePage() {
 
           <div className="space-y-2 text-sm">
             <label className="flex items-center gap-2.5">
-              <input type="checkbox" checked={form.receipt80G} onChange={(e) => setForm({ ...form, receipt80G: e.target.checked })} className="h-4 w-4 accent-primary" />
+              <input
+                type="checkbox"
+                checked={form.receipt80G}
+                onChange={(e) => setForm({ ...form, receipt80G: e.target.checked })}
+                className="h-4 w-4 accent-primary"
+              />
               <span>Send me an 80G tax exemption receipt</span>
             </label>
             <label className="flex items-center gap-2.5">
-              <input type="checkbox" checked={form.anonymous} onChange={(e) => setForm({ ...form, anonymous: e.target.checked })} className="h-4 w-4 accent-primary" />
+              <input
+                type="checkbox"
+                checked={form.anonymous}
+                onChange={(e) => setForm({ ...form, anonymous: e.target.checked })}
+                className="h-4 w-4 accent-primary"
+              />
               <span>Keep my donation anonymous publicly</span>
             </label>
           </div>
@@ -164,16 +229,39 @@ function DonatePage() {
             disabled={paying || !finalAmount || finalAmount < 10}
             className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-4 font-semibold hover:opacity-90 transition disabled:opacity-50"
           >
-            {paying ? "Opening Razorpay…" : (<>Pay ₹{(finalAmount || 0).toLocaleString("en-IN")} via Razorpay <ArrowRight className="h-4 w-4" /></>)}
+            {paying ? (
+              "Opening Razorpay…"
+            ) : (
+              <>
+                Pay ₹{(finalAmount || 0).toLocaleString("en-IN")} via Razorpay{" "}
+                <ArrowRight className="h-4 w-4" />
+              </>
+            )}
           </button>
-          <p className="text-xs text-muted-foreground text-center">By donating you agree to our terms. Test mode -backend integration pending.</p>
+          <p className="text-xs text-muted-foreground text-center">
+            By donating you agree to our terms. Test mode -backend integration pending.
+          </p>
         </form>
       </section>
     </>
   );
 }
 
-function Field({ label, value, onChange, type = "text", required, placeholder }: { label: string; value: string; onChange: (v: string) => void; type?: string; required?: boolean; placeholder?: string }) {
+function Field({
+  label,
+  value,
+  onChange,
+  type = "text",
+  required,
+  placeholder,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
+}) {
   return (
     <div>
       <label className="text-sm font-semibold">{label}</label>
