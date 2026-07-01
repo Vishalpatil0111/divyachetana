@@ -3,16 +3,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/client",
   "installCommand": "npm install",
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "functions": {
-    "api/handler.ts": {
-      "runtime": "nodejs20.x",
-      "memory": 1024,
-      "maxDuration": 60
-    }
-  },
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -36,7 +26,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api/handler"
+      "destination": "/api/handler.js"
     }
   ]
 }
