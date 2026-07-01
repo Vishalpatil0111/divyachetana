@@ -1,12 +1,17 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let serverModule = null;
 
 async function getServer() {
   if (!serverModule) {
     try {
-      serverModule = require('../dist/server/server.js');
+      const serverPath = path.join(__dirname, '../dist/server/server.js');
+      serverModule = await import(serverPath);
+      console.log('Server module loaded:', !!serverModule.default);
     } catch (e) {
       console.error('Failed to load server module:', e);
       throw e;
@@ -54,8 +59,10 @@ async function serveStatic(pathname) {
   return null;
 }
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   try {
+    console.log('Handler called:', req.method, req.url);
+    
     const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
     const pathname = url.pathname;
 
@@ -64,8 +71,9 @@ module.exports = async (req, res) => {
       pathname.startsWith('/assets/') ||
       pathname.startsWith('/images/') ||
       pathname === '/divyachetana-logo.png' ||
-      (pathname.includes('.') && pathname.includes('/'))
+      (pathname.includes('.') && pathname.split('/').pop().includes('.'))
     ) {
+      console.log('Attempting to serve static file:', pathname);
       const staticContent = await serveStatic(pathname);
       if (staticContent) {
         res.setHeader('Content-Type', getMimeType(pathname));
@@ -80,9 +88,15 @@ module.exports = async (req, res) => {
       }
     }
 
+    console.log('Routing to SSR handler for:', pathname);
+    
     // Route SSR requests through the server
     const server = await getServer();
     const handler = server.default;
+
+    if (!handler) {
+      throw new Error('No default export found in server module');
+    }
 
     // Build request URL
     const method = req.method || 'GET';
@@ -121,6 +135,6 @@ module.exports = async (req, res) => {
     console.error('Handler error:', error);
     res.statusCode = 500;
     res.setHeader('Content-Type', 'text/html');
-    res.end('<h1>500 Internal Server Error</h1>');
+    res.end('<h1>500 Internal Server Error</h1><p>' + error.message + '</p>');
   }
 };
